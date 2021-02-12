@@ -13,8 +13,6 @@ namespace MyListSmltr
             MyDictionary.Add(4, "Onur");
             MyDictionary.Add(5, "Halil");
             MyDictionary.Add(6, "Engin");
-
-            
         }
     }
 }
