@@ -4,26 +4,36 @@ using System.Text;
 
 namespace MyListSmltr
 {
-    class MyList<T,U>
+    class MyList<U,V>
     {
-        List<MyList<T,U>> MyDictionary;
+        U[] Key;
+        V[] Value;
         public MyList()
         {
-            MyDictionary = new List<MyList<T, U>>();
+            Key = new U[0];
+            Value = new V[0];
         }
-        public T Key { get; set; }
-        public U Item { get; set; }
-        public void Add(T key,U item)
+        public void Add(U key,V value)
         {
-            MyDictionary.Add(new MyList<T, U> { Key = key, Item = item });
-            ShowList();
-            Console.WriteLine("{0} Numaralı Kullanıcı Eklendi. \n",key);
+            Console.WriteLine("\n{0} Numaralı Kullanıcı Eklendi!", key);
+            U[] TmpKey = Key;
+            V[] TmpValue = Value;
+            Key = new U[Key.Length+1];
+            Value = new V[Value.Length+1];
+            for (int i = 0; i < TmpKey.Length; i++)
+            {
+                Key[i] = TmpKey[i];           
+                Value[i] = TmpValue[i];           
+            }
+            Key[Key.Length-1] = key;
+            Value[Value.Length-1] = value;
+            ShowList(); 
         }
         public void ShowList()
         {
-            foreach (var item in MyDictionary)
+            for (int i = 0; i < Key.Length; i++)
             {
-                Console.WriteLine("{0} {1}",item.Key,item.Item);
+                Console.WriteLine("{0} {1}", Key[i],Value[i]);
             }
         }
     }
