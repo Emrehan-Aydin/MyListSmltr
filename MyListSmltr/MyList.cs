@@ -16,9 +16,7 @@ namespace MyListSmltr
         }
         
         public void Add(U key,V value)
-        {
-            Console.WriteLine("\n{0} Numaralı Kullanıcı Eklendi!", key);
-            
+        {            
             U[] TmpKey = Key;
             V[] TmpValue = Value;
             
@@ -33,6 +31,9 @@ namespace MyListSmltr
             
             Key[Key.Length-1] = key;
             Value[Value.Length-1] = value;
+
+            Console.WriteLine("\n{0} Numaralı Kullanıcı Eklendi!", key);
+
             ShowList(); 
         }
         
